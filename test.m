@@ -60,42 +60,46 @@ for i = 1:length(titles);
     %     cd ..
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %     Param.seqId   = seqId;
-    %     Param.dataset = datasetPath;
-    %     Param.numsample = 600;
-    %     trackparams;
-    %     cd L1APG_ICCV09
-    %     [ resCenters resConers ] = run_L1APG_ICCV09( imageNames, Param );
-    %
-    %
-    %     % prepare the path for saving tracking results
-    %     tres_path=[res_path '\L1APG_ICCV09\' seqId '\'];
-    %     if ~exist(tres_path,'dir')
-    %         mkdir(tres_path);
-    %     end
-    %
-    %     save([tres_path 'L1_APG_' seqId '_Centers.mat'], 'resCenters');
-    %     save([tres_path 'L1_APG_' seqId '_Coners.mat'], 'resConers');
-    %     cd ..
+        Param.seqId   = seqId;
+        Param.dataset = datasetPath;
+        Param.numsample = 600;
+        trackparams;
+        cd L1APG_ICCV09
+        [ resCenters resConers ] = run_L1APG_ICCV09( imageNames, Param );
+    
+    
+        % prepare the path for saving tracking results
+        tres_path=[res_path '\L1APG_ICCV09\' seqId '\'];
+        if ~exist(tres_path,'dir')
+            mkdir(tres_path);
+        end
+        cd ..
+        errs = Evaluation(resCenters,seqId);
+ 
+        save([tres_path 'L1_APG_' seqId '_Errs.mat'], 'errs');
+        save([tres_path 'L1_APG_' seqId '_Centers.mat'], 'resCenters');
+        save([tres_path 'L1_APG_' seqId '_Coners.mat'], 'resConers');
+        
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Param.seqId   = seqId;
-    Param.dataset = datasetPath;
-    trackparams;
-    cd MTT_IJCV12
-    [resCenters,resConers] = run_MTT_IJCV12( imageNames, Param );
-    
-    %     prepare the path for saving tracking results
-    tres_path=[res_path '\MTT_IJCV12\' seqId '\'];
-    if ~exist(tres_path,'dir')
-        mkdir(tres_path);
-    end
-    
-    save([tres_path 'MTT_IJCV12_' seqId '_Centers.mat'], 'resCenters');
-    save([tres_path 'MTT_IJCV12_' seqId '_Coners.mat'], 'resConers');
-    
-    cd ..
-    
+%     Param.seqId   = seqId;
+%     Param.dataset = datasetPath;
+%     trackparams;
+%     cd MTT_IJCV12
+%     [resCenters,resConers] = run_MTT_IJCV12( imageNames, Param );
+%     
+%     %     prepare the path for saving tracking results
+%     tres_path=[res_path '\MTT_IJCV12\' seqId '\'];
+%     if ~exist(tres_path,'dir')
+%         mkdir(tres_path);
+%     end
+%     errs = Evaluation(resCenters,seqId);
+%     
+%     save([tres_path 'MTT_IJCV12_' seqId '_Errs.mat'], 'errs');
+%     save([tres_path 'MTT_IJCV12_' seqId '_Centers.mat'], 'resCenters');
+%     save([tres_path 'MTT_IJCV12_' seqId '_Coners.mat'], 'resConers');
+%     
+%     cd ..
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %      Param.seqId   = seqId;
     %     Param.dataset = datasetPath;
