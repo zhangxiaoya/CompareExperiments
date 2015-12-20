@@ -75,7 +75,7 @@ switch( seqId );
         Param.param = struct('numsample',200, 'affsig',[8,5,.002,.0001,.002,.000]);
         Param.forMat = '.jpg';
         
-    case 'mountationbike';
+    case 'mountainBike';
         Param.s0 = [358 210 58 53 0.00];
         Param.param = struct('numsample',100,'affsig',[4, 4, 0.01, .00, .00, .00]);
         Param.forMat = '.jpg';
