@@ -24,8 +24,8 @@ close all;
 % title = 'soccer';   % good
 % title = 'football'; % good
 % title = 'bolt';
-titles = {'animal';'board';'car11';'caviar';'faceocc2'; 'girl';'jumping'; 'panda';'shaking';'singer1';'stone';'mountainBike';'gym';'soccer';'football'};
-% titles = {'jumping'; 'panda';'shaking';'singer1';'stone';'mountainBike';'gym';'soccer';'football'};
+% titles = {'animal';'board';'car11';'caviar';'faceocc2';'jumping'; 'panda';'shaking';'singer1';'stone';'mountainBike';'gym';'soccer';'football'};
+titles = {'mountainBike';'gym';'soccer';'football'};
 % titles = {'jumping';'mountainBike';'gym';'soccer';'football'};
 % datasetPath = '/home/xiaoya/Research/zhyn/experiments/data/images';
 datasetPath = 'D:\CResearch\datasets\MyBenchmark\';
@@ -66,7 +66,6 @@ for i = 1:length(titles);
         trackparams;
         cd L1APG_ICCV09
         [ resCenters resConers ] = run_L1APG_ICCV09( imageNames, Param );
-    
     
         % prepare the path for saving tracking results
         tres_path=[res_path '\L1APG_ICCV09\' seqId '\'];
